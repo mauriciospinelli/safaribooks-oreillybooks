@@ -1,3 +1,27 @@
+# Mauricio README
+Generate cookies and create a `cookies.json` file
+* https://github.com/lorenzodifuccia/safaribooks/issues/150#issuecomment-779670304
+* https://github.com/lorenzodifuccia/safaribooks/issues/150#issuecomment-560424342
+* https://github.com/lorenzodifuccia/safaribooks/issues/150#issuecomment-637396402
+
+Guide:
+```
+Open Firefox/chrome.
+Open Developer tools (alt+command+I in Mac, control+shift+I Win).
+Navigate to /profile/ URL,.
+At the Network Tab select /profile/.
+Go to the Cookies "sub-tab".
+Right Click at the "Request Cookies" headline and click on COPY ALL. [Didnt work for me]
+Paste them to a Cookies.json file.[Didnt work for me] 
+```
+
+enable `allow pasting` on Chrome DevTab Console to be able to paste the command below
+
+Command to generate cookies from Google Chrome
+```
+console.log(JSON.stringify(document.cookie.split(';').map(c => c.split('=')).map(i => [i[0].trim(), i[1].trim()]).reduce((r, i) => {r[i[0]] = i[1]; return r;}, {})))
+```
+
 # SafariBooks
 Download and generate *EPUB* of your favorite books from [*Safari Books Online*](https://www.safaribooksonline.com) library.  
 I'm not responsible for the use of this program, this is only for *personal* and *educational* purpose.  
